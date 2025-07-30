@@ -4154,6 +4154,8 @@ dependencies = [
  "cosmrs",
  "cosmwasm-std",
  "hex",
+ "log",
+ "tokio",
  "toml",
 ]
 
