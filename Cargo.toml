@@ -23,11 +23,6 @@ log = "0.4.22"
 env_logger = "0.10.0"
 
 # cosmos
-cosmrs = { version = "0.22.0", features = [
-    "cosmwasm",
-    "rpc",
-    "grpc",
-], optional = true }
 cosmwasm-std = "2.1.3"
 # todo: import this from crates.io once possible
 valence-domain-clients = { git = "https://github.com/timewave-computer/valence-domain-clients.git", tag = "v1.0.0" }

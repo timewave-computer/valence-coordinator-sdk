@@ -5,7 +5,7 @@ use valence_domain_clients::{
     cosmos::{base_client::BaseClient, wasm_client::WasmClient},
 };
 
-/// enqueues a set of messages to a given authorizations module,
+/// enqueues a set of messages to a given authorizations contract,
 /// under the specified authorization label.
 /// messages are expected to be passed in as json bytes.
 pub async fn enqueue(
@@ -61,7 +61,7 @@ pub async fn tick(client: &NeutronClient, processor: &str) -> anyhow::Result<()>
 }
 
 /// constructs the zk authorization execution message and executes it.
-/// authorizations module will perform the zk verification and, if
+/// authorizations contract will perform the zk verification and, if
 /// successful, push it to the processor for execution
 pub async fn post_zkp_on_chain(
     client: &NeutronClient,
