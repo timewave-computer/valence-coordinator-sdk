@@ -14,7 +14,7 @@ repository = "https://github.com/timewave-computer/valence-coordinator-sdk"
 
 # general top level
 anyhow = { version = "1", default-features = false }
-async-trait = "0.1.77"
+async-trait = "0.1.88"
 hex = "0.4.3"
 toml = "0.8"
 bincode = "1.3.3"
