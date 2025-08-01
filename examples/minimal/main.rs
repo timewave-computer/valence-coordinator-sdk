@@ -9,10 +9,10 @@ use valence_domain_clients::clients::neutron::NeutronClient;
 // top level coordinator struct holding the neutron client
 // and any information relevant to its functionality
 struct Ticker {
-    label: String,
+    coordinator_label: String,
     client: NeutronClient,
     processor_addr: String,
-    tick_cadence: u64,
+    tick_interval_secs: u64,
 }
 
 // implementing the ValenceCoordinator trait on the above struct
@@ -20,7 +20,7 @@ struct Ticker {
 #[async_trait]
 impl ValenceCoordinator for Ticker {
     fn get_name(&self) -> String {
-        self.label.to_string()
+        self.coordinator_label.to_string()
     }
 
     async fn cycle(&mut self) -> Result<()> {
@@ -31,8 +31,8 @@ impl ValenceCoordinator for Ticker {
             Err(e) => log::warn!("ticking the processor failed: {e}"),
         };
 
-        info!("sleeping for {}sec...", self.tick_cadence);
-        tokio::time::sleep(Duration::from_secs(self.tick_cadence)).await;
+        info!("sleeping for {}sec...", self.tick_interval_secs);
+        tokio::time::sleep(Duration::from_secs(self.tick_interval_secs)).await;
 
         Ok(())
     }
@@ -49,9 +49,9 @@ async fn main() -> Result<()> {
     telemetry::setup_logging(None)?;
 
     // fetch the env variables
-    let label = env::var("LABEL")?;
-    let proc = env::var("NEUTRON_PROCESSOR_ADDR")?;
-    let secs: u64 = env::var("TICK_INTERVAL_SECS")?.parse()?;
+    let coordinator_label = env::var("LABEL")?;
+    let processor_addr = env::var("NEUTRON_PROCESSOR_ADDR")?;
+    let tick_interval_secs: u64 = env::var("TICK_INTERVAL_SECS")?.parse()?;
 
     // initialize a neutron client
     let client = NeutronClient::new(
@@ -64,10 +64,10 @@ async fn main() -> Result<()> {
 
     // construct the ticker in order to start the coordinator
     let ticker = Ticker {
-        label,
+        coordinator_label,
         client,
-        processor_addr: proc,
-        tick_cadence: secs,
+        processor_addr,
+        tick_interval_secs,
     };
 
     // get the join handle of the ticker thread
