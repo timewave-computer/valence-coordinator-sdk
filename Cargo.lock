@@ -4553,7 +4553,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "81bddcdb20abf9501610992b6759a4c888aef7d1a7247ef75e2404275ac24af1"
 dependencies = [
  "anyhow",
- "itertools 0.10.5",
+ "itertools 0.12.1",
  "proc-macro2",
  "quote",
  "syn 2.0.104",
@@ -6573,6 +6573,7 @@ dependencies = [
  "valence-coprocessor 0.3.12",
  "valence-coprocessor-wasm",
  "valence-domain-clients",
+ "valence-lending-utils",
  "valence-processor-utils",
 ]
 
@@ -6700,6 +6701,15 @@ dependencies = [
  "cw-denom",
  "cw-storage-plus",
  "serde",
+]
+
+[[package]]
+name = "valence-lending-utils"
+version = "0.2.0"
+source = "git+https://github.com/timewave-computer/valence-protocol?rev=062a77e#062a77e9f1546637f58a4a7b863d10aa46e03cb1"
+dependencies = [
+ "cosmwasm-schema",
+ "cosmwasm-std",
 ]
 
 [[package]]
