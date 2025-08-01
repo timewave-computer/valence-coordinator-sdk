@@ -12,7 +12,7 @@ const DEFAULT_LOG_SERVICE_NAME: &str = "valence-coordinator";
 /// so that logs are pushed both to the specified opentelemetry endpoint
 /// and std.
 /// otherwise, a simple env_logger is initialized.
-pub async fn setup_logging(otlp_endpoint: Option<String>) -> anyhow::Result<()> {
+pub fn setup_logging(otlp_endpoint: Option<String>) -> anyhow::Result<()> {
     if let Some(otlp_endpoint) = otlp_endpoint {
         // set up a opentelemetry log exporter with the given otlp_endpoint
         let otlp_exporter = opentelemetry_otlp::LogExporter::builder()

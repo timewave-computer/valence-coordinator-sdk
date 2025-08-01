@@ -44,3 +44,4 @@ valence-coprocessor-wasm = { git = "https://github.com/timewave-computer/valence
 # valence-protocol
 valence-authorization-utils = { git = "https://github.com/timewave-computer/valence-protocol", rev = "062a77e" }
 valence-processor-utils = { git = "https://github.com/timewave-computer/valence-protocol", rev = "062a77e" }
+valence-lending-utils = { git = "https://github.com/timewave-computer/valence-protocol", rev = "062a77e" }
