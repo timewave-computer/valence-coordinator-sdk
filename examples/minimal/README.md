@@ -2,7 +2,7 @@
 
 A tiny coordinator that periodically ticks the configured Valence Processor on Neutron.
 
-## Funcionality overview
+## Functionality overview
 
 1. Read the `.env` config
 2. Build a `NeutronClient` to make gRPC requests
@@ -12,20 +12,13 @@ A tiny coordinator that periodically ticks the configured Valence Processor on N
 
 ## Setup
 
-Set working directory to the example. From repo root, run:
+From the repository root, create your env file from the example:
 
 ```bash
-cd examples/minimal
-```
-
-Create your env file from the example:
-
-```bash
-cp .env.example .env
+cp examples/.env.example examples/.env
 ```
 
 Only thing you need to fill in is the mnemonic; the rest can be kept as defaults.
-
 
 ## Run
 

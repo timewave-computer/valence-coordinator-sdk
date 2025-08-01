@@ -1,6 +1,5 @@
 use anyhow::Result;
 use async_trait::async_trait;
-use dotenv::dotenv;
 use log::info;
 use std::{env, time::Duration};
 use valence_coordinator_sdk::{coordinator::ValenceCoordinator, telemetry};
@@ -40,10 +39,8 @@ impl ValenceCoordinator for Ticker {
 
 #[tokio::main]
 async fn main() -> Result<()> {
-    // load environment variables
-    let env_path = env::current_dir()?.join(".env");
-    dotenv::from_path(env_path.as_path())?;
-    dotenv().ok();
+    // load the examples env file
+    dotenv::from_filename("examples/.env").ok();
 
     // set up logging with no telemetry
     telemetry::setup_logging(None)?;
