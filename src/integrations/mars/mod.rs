@@ -8,13 +8,15 @@ use valence_lending_utils::mars::{Account, Positions};
 pub async fn query_mars_credit_account_positions(
     client: &NeutronClient,
     credit_manager: &str,
-    account_id: String,
+    account_id: &str,
 ) -> anyhow::Result<Positions> {
     // query mars positions owned by the credit account id
     let mars_positions_response: Positions = client
         .query_contract_state(
             credit_manager,
-            valence_lending_utils::mars::QueryMsg::Positions { account_id },
+            valence_lending_utils::mars::QueryMsg::Positions {
+                account_id: account_id.to_string(),
+            },
         )
         .await?;
 
@@ -67,21 +69,17 @@ pub async fn query_mars_lending_denom_amount(
         .first()
         .ok_or_else(|| anyhow::anyhow!("no credit account found for owner {acc_owner}"))?;
 
-    let active_positions = query_mars_credit_account_positions(
-        client,
-        credit_manager,
-        first_credit_account.id.to_string(),
-    )
-    .await?;
+    let active_positions =
+        query_mars_credit_account_positions(client, credit_manager, &first_credit_account.id)
+            .await?;
 
-    // iterate over active lending positions until the target denom is found
-    for lend in active_positions.lends {
-        if lend.denom == denom {
-            return Ok(lend.amount.u128());
-        }
-    }
-
-    // if target denom was not among the active lending positions,
-    // we return an error to prevent incorrect accounting
-    Err(anyhow::anyhow!("no {denom} active lending positions found"))
+    // iterate over the active lending positions and search for the specified denom.
+    // if found, return the respective amount.
+    // otherwise, return an error.
+    active_positions
+        .lends
+        .into_iter()
+        .find(|lend| lend.denom == denom)
+        .map(|lend| lend.amount.u128())
+        .ok_or_else(|| anyhow::anyhow!("no {denom} active lending positions found"))
 }
