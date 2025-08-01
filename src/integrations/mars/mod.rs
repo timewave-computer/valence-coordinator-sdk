@@ -46,32 +46,18 @@ pub async fn query_mars_credit_accounts(
 }
 
 /// utility query that:
-/// 1. queries the available mars credit accounts for a given address
-/// 2. takes the first credit account and queries the active lending
-///    positions for that account
-/// 3. filters the active positions for the specified denom and, if
-///    found, returns the active lending amount
-///
-/// If any of the steps fail, an error is returned
+/// 1. queries the specified credit account active lending positions
+/// 2. filters the active positions for the specified denom
+///   - if denom is found, returns the lending amount
+///   - if denom is not actively lent, returns an error
 pub async fn query_mars_lending_denom_amount(
     client: &NeutronClient,
     credit_manager: &str,
-    acc_owner: &str,
+    acc_id: &str,
     denom: &str,
 ) -> anyhow::Result<u128> {
-    // get the first credit account. while credit accounts are returned as a vec,
-    // mars lending library should only ever create one credit account and re-use it
-    // for all LP actions, so we get the [0]
-    let mars_credit_accounts =
-        query_mars_credit_accounts(client, credit_manager, acc_owner).await?;
-
-    let first_credit_account = mars_credit_accounts
-        .first()
-        .ok_or_else(|| anyhow::anyhow!("no credit account found for owner {acc_owner}"))?;
-
     let active_positions =
-        query_mars_credit_account_positions(client, credit_manager, &first_credit_account.id)
-            .await?;
+        query_mars_credit_account_positions(client, credit_manager, acc_id).await?;
 
     // iterate over the active lending positions and search for the specified denom.
     // if found, return the respective amount.
