@@ -31,7 +31,7 @@ pub async fn query_mars_credit_accounts(
     acc_owner: &str,
 ) -> anyhow::Result<Vec<Account>> {
     // query the mars credit account created and owned by the mars input account
-    let mars_input_acc_credit_accounts: Vec<Account> = client
+    let mars_credit_accounts: Vec<Account> = client
         .query_contract_state(
             credit_manager,
             valence_lending_utils::mars::QueryMsg::Accounts {
@@ -42,14 +42,14 @@ pub async fn query_mars_credit_accounts(
         )
         .await?;
 
-    Ok(mars_input_acc_credit_accounts)
+    Ok(mars_credit_accounts)
 }
 
 /// utility query that:
 /// 1. queries the available mars credit accounts for a given address
 /// 2. takes the first credit account and queries the active lending
 ///    positions for that account
-/// 3. filders the active positions for the specified denom and, if
+/// 3. filters the active positions for the specified denom and, if
 ///    found, returns the active lending amount
 ///
 /// If any of the steps fail, an error is returned
