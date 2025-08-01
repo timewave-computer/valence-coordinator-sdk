@@ -5607,15 +5607,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "0fda2ff0d084019ba4d7c6f371c95d8fd75ce3524c3cb8fb653a3023f6323e64"
 
 [[package]]
-name = "signal-hook-registry"
-version = "1.4.5"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9203b8055f63a2a00e2f593bb0510367fe707d7ff1e5c872de2f537b339e5410"
-dependencies = [
- "libc",
-]
-
-[[package]]
 name = "signature"
 version = "2.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -6241,9 +6232,7 @@ dependencies = [
  "io-uring",
  "libc",
  "mio",
- "parking_lot",
  "pin-project-lite",
- "signal-hook-registry",
  "slab",
  "socket2 0.6.0",
  "tokio-macros",
@@ -6705,29 +6694,11 @@ dependencies = [
  "tokio",
  "toml",
  "valence-authorization-utils",
- "valence-coprocessor 0.3.12",
+ "valence-coprocessor",
  "valence-coprocessor-wasm",
  "valence-domain-clients",
  "valence-lending-utils",
  "valence-processor-utils",
-]
-
-[[package]]
-name = "valence-coprocessor"
-version = "0.3.1"
-source = "git+https://github.com/timewave-computer/valence-coprocessor.git?tag=v0.3.1#cefeac69e40ebd86cafebb3ade47f0f9e75b6061"
-dependencies = [
- "anyhow",
- "base64 0.22.1",
- "blake3",
- "buf-fs",
- "hashbrown 0.15.4",
- "msgpacker",
- "reqwest 0.12.22",
- "serde",
- "serde_json",
- "tracing",
- "zerocopy",
 ]
 
 [[package]]
@@ -6745,35 +6716,6 @@ dependencies = [
  "serde_json",
  "tracing",
  "zerocopy",
-]
-
-[[package]]
-name = "valence-coprocessor-client"
-version = "0.3.1"
-source = "git+https://github.com/timewave-computer/valence-coprocessor.git?tag=v0.3.1#cefeac69e40ebd86cafebb3ade47f0f9e75b6061"
-dependencies = [
- "anyhow",
- "hex",
- "reqwest 0.12.22",
- "serde",
- "serde_json",
- "tokio",
- "tracing",
- "uuid 1.17.0",
- "valence-coprocessor 0.3.1",
-]
-
-[[package]]
-name = "valence-coprocessor-domain-prover"
-version = "0.3.1"
-source = "git+https://github.com/timewave-computer/valence-coprocessor-domain-prover.git?tag=v0.3.1#926121faa8e62e4af22a050656ac32918f807e40"
-dependencies = [
- "anyhow",
- "hex",
- "msgpacker",
- "serde_json",
- "valence-coprocessor 0.3.1",
- "valence-coprocessor-client",
 ]
 
 [[package]]
@@ -6786,13 +6728,14 @@ dependencies = [
  "msgpacker",
  "serde_json",
  "tracing",
- "valence-coprocessor 0.3.12",
+ "valence-coprocessor",
 ]
 
 [[package]]
 name = "valence-domain-clients"
-version = "0.1.0"
-source = "git+https://github.com/timewave-computer/valence-domain-clients.git?tag=v1.0.0#167a7997bccd0c263ed8ed95c8194b86b75683fc"
+version = "1.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1fc6d6cb5ab7208244825f96c13cca4b14afb6c2ed6c6ba5d4ed32debe1c4d53"
 dependencies = [
  "alloy",
  "alloy-primitives 0.7.7",
@@ -6800,20 +6743,24 @@ dependencies = [
  "alloy-sol-types 0.7.7",
  "anyhow",
  "async-trait",
+ "base64 0.22.1",
  "bip32",
+ "bs58",
  "cosmos-sdk-proto 0.26.1",
  "cosmrs",
  "hex",
  "ibc",
  "log",
+ "msgpacker",
  "neutron-std",
  "prost 0.13.5",
+ "reqwest 0.12.22",
  "serde",
  "serde_json",
  "thiserror 1.0.69",
  "tokio",
  "tonic 0.12.3",
- "valence-coprocessor-domain-prover",
+ "uuid 1.17.0",
 ]
 
 [[package]]
