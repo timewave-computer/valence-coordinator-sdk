@@ -26,19 +26,19 @@ pub trait ValenceCoordinator {
         let name = self.get_name();
         info!(target: COORDINATOR, "starting coordinator: {name}");
 
-        // start the worker in its own thread to own the runtime
+        // start the coordinator in its own thread to own the runtime
         std::thread::spawn(move || {
             // create the tokio runtime on the current thread
             let rt = tokio::runtime::Runtime::new().expect("tokio runtime");
 
             // start looping inside this runtime
             rt.block_on(async {
-                let mut worker = self;
+                let mut coordinator = self;
 
-                info!(target: COORDINATOR, "{name}: worker started in new runtime");
+                info!(target: COORDINATOR, "{name}: coordinator started in new runtime");
 
                 loop {
-                    match worker.cycle().await {
+                    match coordinator.cycle().await {
                         Ok(_) => {
                             info!(target: COORDINATOR, "{name}: cycle completed successfully");
                         }
