@@ -139,7 +139,7 @@ async fn main() -> Result<()> {
     .await?;
 
     // construct the ticker in order to start the coordinator
-    let mut ticker = Ticker {
+    let ticker = Ticker {
         coordinator_label,
         client,
         processor_addr,
