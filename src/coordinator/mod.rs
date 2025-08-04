@@ -33,12 +33,12 @@ pub trait ValenceCoordinator {
 
             // start looping inside this runtime
             rt.block_on(async {
-                let mut worker = self;
+                let mut coordinator = self;
 
                 info!(target: COORDINATOR, "{name}: coordinator started in new runtime");
 
                 loop {
-                    match worker.cycle().await {
+                    match coordinator.cycle().await {
                         Ok(_) => {
                             info!(target: COORDINATOR, "{name}: cycle completed successfully");
                         }
