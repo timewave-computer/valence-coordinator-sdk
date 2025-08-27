@@ -6791,25 +6791,54 @@ dependencies = [
 
 [[package]]
 name = "valence-coprocessor"
-version = "0.3.12"
-source = "git+https://github.com/timewave-computer/valence-coprocessor.git?tag=v0.3.12#5cb5b00e2494bfb54ac6ed49badcb54acbc6572e"
+version = "0.4.7"
+source = "git+https://github.com/timewave-computer/valence-coprocessor.git?tag=v0.4.7#fbfd406dbf3d7681ba5f358ad0280f504f9f35bc"
 dependencies = [
  "anyhow",
  "base64 0.22.1",
- "blake3",
  "buf-fs",
+ "const-hex",
  "hashbrown 0.15.4",
  "msgpacker",
  "serde",
  "serde_json",
+ "tracing",
+ "valence-coprocessor-merkle",
+ "valence-coprocessor-types",
+ "zerocopy",
+]
+
+[[package]]
+name = "valence-coprocessor-merkle"
+version = "0.4.7"
+source = "git+https://github.com/timewave-computer/valence-coprocessor.git?tag=v0.4.7#fbfd406dbf3d7681ba5f358ad0280f504f9f35bc"
+dependencies = [
+ "anyhow",
+ "hex",
+ "msgpacker",
+ "serde",
+ "valence-coprocessor-types",
+ "zerocopy",
+]
+
+[[package]]
+name = "valence-coprocessor-types"
+version = "0.4.7"
+source = "git+https://github.com/timewave-computer/valence-coprocessor.git?tag=v0.4.7#fbfd406dbf3d7681ba5f358ad0280f504f9f35bc"
+dependencies = [
+ "anyhow",
+ "base64 0.22.1",
+ "blake3",
+ "msgpacker",
+ "serde",
  "tracing",
  "zerocopy",
 ]
 
 [[package]]
 name = "valence-coprocessor-wasm"
-version = "0.3.12"
-source = "git+https://github.com/timewave-computer/valence-coprocessor.git?tag=v0.3.12#5cb5b00e2494bfb54ac6ed49badcb54acbc6572e"
+version = "0.4.7"
+source = "git+https://github.com/timewave-computer/valence-coprocessor.git?tag=v0.4.7#fbfd406dbf3d7681ba5f358ad0280f504f9f35bc"
 dependencies = [
  "anyhow",
  "lru 0.14.0",
