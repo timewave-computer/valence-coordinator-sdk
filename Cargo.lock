@@ -6866,7 +6866,7 @@ dependencies = [
 [[package]]
 name = "valence-domain-clients"
 version = "1.1.0"
-source = "git+https://github.com/timewave-computer/valence-domain-clients?rev=1a2f0e9#1a2f0e9789d2f5165e9a9948c0c89b358e0b7411"
+source = "git+https://github.com/timewave-computer/valence-domain-clients?rev=5435959#5435959607d5093182155e61c83307d74d463227"
 dependencies = [
  "alloy",
  "alloy-signer-local",
