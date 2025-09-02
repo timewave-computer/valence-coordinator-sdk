@@ -42,6 +42,6 @@ valence-coprocessor = { git = "https://github.com/timewave-computer/valence-copr
 valence-coprocessor-wasm = { git = "https://github.com/timewave-computer/valence-coprocessor.git", tag = "v0.4.7", default-features = false }
 
 # valence-protocol
-valence-authorization-utils = { git = "https://github.com/timewave-computer/valence-protocol", rev = "062a77e" }
-valence-processor-utils = { git = "https://github.com/timewave-computer/valence-protocol", rev = "062a77e" }
-valence-lending-utils = { git = "https://github.com/timewave-computer/valence-protocol", rev = "062a77e" }
+valence-authorization-utils = { git = "https://github.com/timewave-computer/valence-protocol", rev = "6bc9ebb" }
+valence-processor-utils = { git = "https://github.com/timewave-computer/valence-protocol", rev = "6bc9ebb" }
+valence-lending-utils = { git = "https://github.com/timewave-computer/valence-protocol", rev = "6bc9ebb" }

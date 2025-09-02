@@ -1364,26 +1364,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7575182f7272186991736b70173b0ea045398f984bf5ebbb3804736ce1330c9d"
 
 [[package]]
-name = "bytemuck"
-version = "1.23.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5c76a5792e44e4abe34d3abf15636779261d45a7450612059293d1d2cfc63422"
-dependencies = [
- "bytemuck_derive",
-]
-
-[[package]]
-name = "bytemuck_derive"
-version = "1.10.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "441473f2b4b0459a68628c744bc61d23e730fb00128b841d30fa4bb3972257e4"
-dependencies = [
- "proc-macro2",
- "quote",
- "syn 2.0.104",
-]
-
-[[package]]
 name = "byteorder"
 version = "1.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1946,21 +1926,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "cw2"
-version = "2.0.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b04852cd38f044c0751259d5f78255d07590d136b8a86d4e09efdd7666bd6d27"
-dependencies = [
- "cosmwasm-schema",
- "cosmwasm-std",
- "cw-storage-plus",
- "schemars",
- "semver 1.0.26",
- "serde",
- "thiserror 1.0.69",
-]
-
-[[package]]
 name = "cw20"
 version = "2.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2203,7 +2168,6 @@ dependencies = [
  "ff",
  "generic-array",
  "group",
- "hkdf",
  "pkcs8",
  "rand_core 0.6.4",
  "sec1",
@@ -2503,12 +2467,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "42012b0f064e01aa58b545fe3727f90f7dd4020f4a3ea735b50344965f5a57e9"
 
 [[package]]
-name = "gcd"
-version = "2.3.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1d758ba1b47b00caf47f24925c0074ecb20d6dfcffe7f6d53395c0465674841a"
-
-[[package]]
 name = "generic-array"
 version = "0.14.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2686,15 +2644,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7f24254aa9a54b5c858eaee2f5bccdb46aaf0e486a595ed5fd8f86ba55232a70"
 dependencies = [
  "serde",
-]
-
-[[package]]
-name = "hkdf"
-version = "0.12.4"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7b5f8eb2ad728638ea2c7d47a21db23b7b58a72ed6a38256b8a1849f15fbbdf7"
-dependencies = [
- "hmac",
 ]
 
 [[package]]
@@ -3769,9 +3718,6 @@ name = "lazy_static"
 version = "1.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "bbd2bcb4c963f2ddae06a2efc7e9f3591312473c50c6685e1f298068316e66fe"
-dependencies = [
- "spin",
-]
 
 [[package]]
 name = "libc"
@@ -4227,118 +4173,6 @@ dependencies = [
  "elliptic-curve",
  "primeorder",
  "sha2 0.10.9",
-]
-
-[[package]]
-name = "p3-baby-bear"
-version = "0.2.3-succinct"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7521838ecab2ddf4f7bc4ceebad06ec02414729598485c1ada516c39900820e8"
-dependencies = [
- "num-bigint",
- "p3-field",
- "p3-mds",
- "p3-poseidon2",
- "p3-symmetric",
- "rand 0.8.5",
- "serde",
-]
-
-[[package]]
-name = "p3-dft"
-version = "0.2.3-succinct"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "46414daedd796f1eefcdc1811c0484e4bced5729486b6eaba9521c572c76761a"
-dependencies = [
- "p3-field",
- "p3-matrix",
- "p3-maybe-rayon",
- "p3-util",
- "tracing",
-]
-
-[[package]]
-name = "p3-field"
-version = "0.2.3-succinct"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "48948a0516b349e9d1cdb95e7236a6ee010c44e68c5cc78b4b92bf1c4022a0d9"
-dependencies = [
- "itertools 0.12.1",
- "num-bigint",
- "num-traits",
- "p3-util",
- "rand 0.8.5",
- "serde",
-]
-
-[[package]]
-name = "p3-matrix"
-version = "0.2.3-succinct"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3e4de3f373589477cb735ea58e125898ed20935e03664b4614c7fac258b3c42f"
-dependencies = [
- "itertools 0.12.1",
- "p3-field",
- "p3-maybe-rayon",
- "p3-util",
- "rand 0.8.5",
- "serde",
- "tracing",
-]
-
-[[package]]
-name = "p3-maybe-rayon"
-version = "0.2.3-succinct"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c3968ad1160310296eb04f91a5f4edfa38fe1d6b2b8cd6b5c64e6f9b7370979e"
-
-[[package]]
-name = "p3-mds"
-version = "0.2.3-succinct"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2356b1ed0add6d5dfbf7a338ce534a6fde827374394a52cec16a0840af6e97c9"
-dependencies = [
- "itertools 0.12.1",
- "p3-dft",
- "p3-field",
- "p3-matrix",
- "p3-symmetric",
- "p3-util",
- "rand 0.8.5",
-]
-
-[[package]]
-name = "p3-poseidon2"
-version = "0.2.3-succinct"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7da1eec7e1b6900581bedd95e76e1ef4975608dd55be9872c9d257a8a9651c3a"
-dependencies = [
- "gcd",
- "p3-field",
- "p3-mds",
- "p3-symmetric",
- "rand 0.8.5",
- "serde",
-]
-
-[[package]]
-name = "p3-symmetric"
-version = "0.2.3-succinct"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "edb439bea1d822623b41ff4b51e3309e80d13cadf8b86d16ffd5e6efb9fdc360"
-dependencies = [
- "itertools 0.12.1",
- "p3-field",
- "serde",
-]
-
-[[package]]
-name = "p3-util"
-version = "0.2.3-succinct"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b6c2c2010678b9332b563eaa38364915b585c1a94b5ca61e2c7541c087ddda5c"
-dependencies = [
- "serde",
 ]
 
 [[package]]
@@ -5699,53 +5533,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "sp1-lib"
-version = "5.1.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0b40a70ba0e385efc08ad88e289589d818f1e0c72525eee424e230e4e72565e5"
-dependencies = [
- "bincode",
- "elliptic-curve",
- "serde",
- "sp1-primitives",
-]
-
-[[package]]
-name = "sp1-primitives"
-version = "5.1.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5504d5a422be065fa8f1fc49ff5208017d6e3fe7e392a7761e73178581f5f35d"
-dependencies = [
- "bincode",
- "blake3",
- "cfg-if",
- "hex",
- "lazy_static",
- "num-bigint",
- "p3-baby-bear",
- "p3-field",
- "p3-poseidon2",
- "p3-symmetric",
- "serde",
- "sha2 0.10.9",
-]
-
-[[package]]
-name = "sp1-verifier"
-version = "5.1.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5f322157eb4ab635d733bb1c538add9c22fd8d41b207020fa148a03bcb0d5082"
-dependencies = [
- "blake3",
- "cfg-if",
- "hex",
- "lazy_static",
- "sha2 0.10.9",
- "substrate-bn-succinct",
- "thiserror 2.0.12",
-]
-
-[[package]]
 name = "speedate"
 version = "0.13.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -5754,12 +5541,6 @@ dependencies = [
  "strum 0.25.0",
  "strum_macros 0.25.3",
 ]
-
-[[package]]
-name = "spin"
-version = "0.9.8"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6980e8d7511241f8acf4aebddbb1ff938df5eebe98691418c4468d0b72a96a67"
 
 [[package]]
 name = "spki"
@@ -5852,23 +5633,6 @@ dependencies = [
  "proc-macro2",
  "quote",
  "syn 2.0.104",
-]
-
-[[package]]
-name = "substrate-bn-succinct"
-version = "0.6.0-v5.0.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0ba32f1b74728f92887c3ad17c42bf82998eb52c9091018f35294e9cd388b0c8"
-dependencies = [
- "bytemuck",
- "byteorder",
- "cfg-if",
- "crunchy",
- "lazy_static",
- "num-bigint",
- "rand 0.8.5",
- "rustc-hex",
- "sp1-lib",
 ]
 
 [[package]]
@@ -6733,7 +6497,7 @@ dependencies = [
 [[package]]
 name = "valence-account-utils"
 version = "0.2.0"
-source = "git+https://github.com/timewave-computer/valence-protocol?rev=062a77e#062a77e9f1546637f58a4a7b863d10aa46e03cb1"
+source = "git+https://github.com/timewave-computer/valence-protocol?rev=6bc9ebb#6bc9ebb9cbe2886543ca6b5241b40c4c471c22d5"
 dependencies = [
  "cosmwasm-schema",
  "cosmwasm-std",
@@ -6749,7 +6513,7 @@ dependencies = [
 [[package]]
 name = "valence-authorization-utils"
 version = "0.2.0"
-source = "git+https://github.com/timewave-computer/valence-protocol?rev=062a77e#062a77e9f1546637f58a4a7b863d10aa46e03cb1"
+source = "git+https://github.com/timewave-computer/valence-protocol?rev=6bc9ebb#6bc9ebb9cbe2886543ca6b5241b40c4c471c22d5"
 dependencies = [
  "cosmwasm-schema",
  "cosmwasm-std",
@@ -6758,7 +6522,6 @@ dependencies = [
  "serde_json",
  "valence-gmp-utils",
  "valence-library-utils",
- "valence-verification-gateway",
 ]
 
 [[package]]
@@ -6899,7 +6662,7 @@ dependencies = [
 [[package]]
 name = "valence-gmp-utils"
 version = "0.2.0"
-source = "git+https://github.com/timewave-computer/valence-protocol?rev=062a77e#062a77e9f1546637f58a4a7b863d10aa46e03cb1"
+source = "git+https://github.com/timewave-computer/valence-protocol?rev=6bc9ebb#6bc9ebb9cbe2886543ca6b5241b40c4c471c22d5"
 dependencies = [
  "cosmwasm-schema",
  "cosmwasm-std",
@@ -6908,7 +6671,7 @@ dependencies = [
 [[package]]
 name = "valence-ibc-utils"
 version = "0.2.0"
-source = "git+https://github.com/timewave-computer/valence-protocol?rev=062a77e#062a77e9f1546637f58a4a7b863d10aa46e03cb1"
+source = "git+https://github.com/timewave-computer/valence-protocol?rev=6bc9ebb#6bc9ebb9cbe2886543ca6b5241b40c4c471c22d5"
 dependencies = [
  "cosmos-sdk-proto 0.20.0",
  "cosmwasm-schema",
@@ -6921,7 +6684,7 @@ dependencies = [
 [[package]]
 name = "valence-lending-utils"
 version = "0.2.0"
-source = "git+https://github.com/timewave-computer/valence-protocol?rev=062a77e#062a77e9f1546637f58a4a7b863d10aa46e03cb1"
+source = "git+https://github.com/timewave-computer/valence-protocol?rev=6bc9ebb#6bc9ebb9cbe2886543ca6b5241b40c4c471c22d5"
 dependencies = [
  "cosmwasm-schema",
  "cosmwasm-std",
@@ -6930,7 +6693,7 @@ dependencies = [
 [[package]]
 name = "valence-library-utils"
 version = "0.2.0"
-source = "git+https://github.com/timewave-computer/valence-protocol?rev=062a77e#062a77e9f1546637f58a4a7b863d10aa46e03cb1"
+source = "git+https://github.com/timewave-computer/valence-protocol?rev=6bc9ebb#6bc9ebb9cbe2886543ca6b5241b40c4c471c22d5"
 dependencies = [
  "cosmwasm-schema",
  "cosmwasm-std",
@@ -6949,7 +6712,7 @@ dependencies = [
 [[package]]
 name = "valence-macros"
 version = "0.2.0"
-source = "git+https://github.com/timewave-computer/valence-protocol?rev=062a77e#062a77e9f1546637f58a4a7b863d10aa46e03cb1"
+source = "git+https://github.com/timewave-computer/valence-protocol?rev=6bc9ebb#6bc9ebb9cbe2886543ca6b5241b40c4c471c22d5"
 dependencies = [
  "cosmwasm-schema",
  "cosmwasm-std",
@@ -6961,7 +6724,7 @@ dependencies = [
 [[package]]
 name = "valence-processor-utils"
 version = "0.2.0"
-source = "git+https://github.com/timewave-computer/valence-protocol?rev=062a77e#062a77e9f1546637f58a4a7b863d10aa46e03cb1"
+source = "git+https://github.com/timewave-computer/valence-protocol?rev=6bc9ebb#6bc9ebb9cbe2886543ca6b5241b40c4c471c22d5"
 dependencies = [
  "cosmwasm-schema",
  "cosmwasm-std",
@@ -6971,20 +6734,6 @@ dependencies = [
  "serde_json",
  "valence-authorization-utils",
  "valence-gmp-utils",
-]
-
-[[package]]
-name = "valence-verification-gateway"
-version = "0.2.0"
-source = "git+https://github.com/timewave-computer/valence-protocol?rev=062a77e#062a77e9f1546637f58a4a7b863d10aa46e03cb1"
-dependencies = [
- "cosmwasm-schema",
- "cosmwasm-std",
- "cw-ownable",
- "cw-storage-plus",
- "cw2",
- "sp1-verifier",
- "thiserror 1.0.69",
 ]
 
 [[package]]
