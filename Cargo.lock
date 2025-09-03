@@ -1536,7 +1536,7 @@ version = "3.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "fde0e0ec90c9dfb3b4b1a0891a7dcd0e2bffde2f7efed5fe7c9bb00e5bfb915e"
 dependencies = [
- "windows-sys 0.48.0",
+ "windows-sys 0.59.0",
 ]
 
 [[package]]
@@ -6628,8 +6628,9 @@ dependencies = [
 
 [[package]]
 name = "valence-domain-clients"
-version = "1.1.0"
-source = "git+https://github.com/timewave-computer/valence-domain-clients?rev=5435959#5435959607d5093182155e61c83307d74d463227"
+version = "2.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4e5628e3814255a74aafe34c6db4befe043df8ad04b6bc1e19c4081d6a110677"
 dependencies = [
  "alloy",
  "alloy-signer-local",
