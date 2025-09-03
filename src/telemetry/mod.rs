@@ -1,8 +1,8 @@
 use opentelemetry_appender_log::OpenTelemetryLogBridge;
 use opentelemetry_otlp::{Protocol, WithExportConfig};
 use opentelemetry_sdk::{
-    Resource,
     logs::{BatchLogProcessor, SdkLoggerProvider},
+    Resource,
 };
 
 const DEFAULT_LOG_SERVICE_NAME: &str = "valence-coordinator";

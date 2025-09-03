@@ -43,9 +43,12 @@ pub trait ValenceCoordinator {
                             info!(target: COORDINATOR, "{name}: cycle completed successfully");
                         }
                         Err(e) => {
-                            error!(target: COORDINATOR, "{name}: error in cycle: {:?}", e);
+                            error!(target: COORDINATOR, "{name}: error in cycle: {e:?}");
                             // sleep a little just in case
-                            tokio::time::sleep(tokio::time::Duration::from_secs(ERROR_BACKOFF_SECS)).await;
+                            tokio::time::sleep(tokio::time::Duration::from_secs(
+                                ERROR_BACKOFF_SECS,
+                            ))
+                            .await;
                         }
                     }
                 }
