@@ -1,11 +1,14 @@
 # Valence Coordinator SDK
 
 The Valence Coordinator SDK is a Rust crate for building off-chain coordinators
-for the Valence Protocol.
+for the [Valence Protocol](https://github.com/timewave-computer/valence-protocol).
 
 It enables developers to create and manage programs that interact with and
 extend the capabilities of the Valence Protocol, supporting both Cosmos and
 EVM-compatible blockchains. Solana support is coming soon.
+
+This crate uses [Valence Domain Clients](https://github.com/timewave-computer/valence-domain-clients) to carry out on-chain interactions.
+
 
 ## Documentation
 
